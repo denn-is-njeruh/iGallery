@@ -2,9 +2,6 @@ SHELL := /bin/bash
 
 include .env
 
-help:
-		@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) :2>/dev/null |
-
 install:
 	pipenv install
 
