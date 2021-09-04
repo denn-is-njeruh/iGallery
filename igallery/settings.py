@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'wallpapers.apps.WallpapersConfig'
+    'wallpapers.apps.WallpapersConfig',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
