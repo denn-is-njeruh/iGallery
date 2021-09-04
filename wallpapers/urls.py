@@ -9,3 +9,6 @@ urlpatterns = [
   url(r'^sports/', views.sport_wallpaper, name='sportWallpapers'),
   url(r'^nature/', views.nature_wallpaper, name='natureWallpapers')
   ]
+
+if settings.DEBUG:
+  urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
