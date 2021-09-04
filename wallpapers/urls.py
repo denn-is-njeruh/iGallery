@@ -5,5 +5,7 @@ from . import views
 
 urlpatterns = [
   url(r'^$',views.welcome, name='welcome'),
-  url('today')
+  url(r'^movies/', views.movie_wallpaper, name='movieWallpapers'),
+  url(r'^sports/', views.sport_wallpaper, name='sportWallpapers'),
+  url(r'^nature/', views.nature_wallpaper, name='natureWallpapers')
   ]
