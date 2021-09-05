@@ -19,11 +19,10 @@ class Image(models.Model):
   def delete_image(self):
     self.delete()
 
-
   @classmethod
   def search_by_category(cls,search_term):
-    search_result = cls.objects.filter(inage_category__category_name__icontains = search_term)
-    return search_result
+    image = cls.objects.filter(category__icontains=search_term)
+    return image
 
   @classmethod
   def get_image_by_id(cls,incoming_id):
@@ -31,7 +30,7 @@ class Image(models.Model):
     return image_result
 
   @classmethod
-  def updare_image(cls,current_value,new_value):
+  def update_image(cls,current_value,new_value):
     fetched_object = Image.objects.filter(image_name = current_value).update(image_name = new_value)
     return fetched_object
 
@@ -50,11 +49,29 @@ class Category(models.Model):
   def save_category(self):
     self.save()
 
+  @classmethod
+  def update_category(cls,current_value,new_value):
+    fetched_category = Category.objects.filter(category_name = current_value).update(category_name = new_value)
+    return fetched_category
 
 
 class Location(models.Model):
   location_name = models.CharField(max_length= 50)
 
+  def __str__(self):
+    return self.location_name
+
+  def save_location(self):
+    self.save()
+
+  @classmethod
+  def update_location(cls,current_value,new_value):
+      fetched_location = Location.objects.filter(location_name = current_value).update(location_name = new_value)
+      return fetched_location
+
 
 class Tag(models.Model):
   tag_name = models.CharField(max_length= 40)
+
+  def __str__(self):
+    return self.tag_name
