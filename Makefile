@@ -8,6 +8,8 @@ install:
 activate:
 	pipenv shell
 
+shell:
+	python manage.py shell
 run:
 	python3 manage.py runserver
 
