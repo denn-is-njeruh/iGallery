@@ -22,7 +22,7 @@ class Image(models.Model):
 
   @classmethod
   def search_by_category(cls,search_term):
-    search_result = cls.objects.filter(inage_category__wallpaper_name__icontains = search_term)
+    search_result = cls.objects.filter(inage_category__category_name__icontains = search_term)
     return search_result
 
   @classmethod
@@ -43,6 +43,13 @@ class Image(models.Model):
 
 class Category(models.Model):
   category_name = models.CharField(max_length= 35)
+
+  def __str__(self):
+    return self.category_name
+
+  def save_category(self):
+    self.save()
+
 
 
 class Location(models.Model):
