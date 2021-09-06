@@ -13,6 +13,13 @@ class TestImageClass(TestCase):
     images = Image.objects.all()
     self.assertTrue(len(images)>0)
 
+  def test_delete_method(self):
+    self.new_image.save_image()
+    filtered_object = Image.objects.filter(image_name='the_matrix')
+    Image.delete_image(filtered_object)
+    all_objects = Image.object.all()
+    self.assertTrue(len(all_objects)==0)
+
   def tearDown(self):
     Image.objects.all().delete()
     Category.objects.all().delete()
