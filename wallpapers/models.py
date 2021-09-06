@@ -38,6 +38,9 @@ class Image(models.Model):
     filtered_result = cls.objects.filter(image_location__location_name__icontains = location)
     return filtered_result
 
+  class Meta:
+    ordering = ['image_name']
+
 
 class Category(models.Model):
   category_name = models.CharField(max_length= 35)

@@ -6,7 +6,7 @@ from .models import Image,Location,Category
 class TestImageClass(TestCase):
   #Setup method
   def setUp(self):
-    self.new_image = Image(image_name = 'the_matrix', image_description ='the wallpaper is borrowed from the matrix movie', location='Hollywood', category= 'movie', image_path='media/gallery/the_matrix.jpg')
+    self.new_image = Image(image_name = 'the_matrix', image_description ='the wallpaper is borrowed from the matrix movie', location='Chicago', category= 'movie', image_path='media/gallery/the_matrix.jpg')
 
   def test_save_method(self):
     self.new_image.save_image()
@@ -67,7 +67,7 @@ class TestLocationClass(TestCase):
 class TestCategoryClass(TestCase):
   
   def setUp(self):
-    self.new_image = Image(image_name = 'the_matrix', image_description ='the wallpaper is borrowed from the matrix movie', location='Hollywood', category='movie', image_path='media/gallery/the_matrix.jpg')
+    self.new_image = Image(image_name = 'the_matrix', image_description ='the wallpaper is borrowed from the matrix movie', location='Chicago', category='movie', image_path='media/gallery/the_matrix.jpg')
     self.new_image.save()
 
     self.new_category = Category(category_name='movie')

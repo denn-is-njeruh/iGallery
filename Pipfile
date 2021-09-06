@@ -9,6 +9,8 @@ django-dotenv = "*"
 django-bootstrap-v5 = "*"
 psycopg2 = "*"
 pillow = "*"
+cloudinary = "*"
+gunicorn = "*"
 
 [dev-packages]
 
