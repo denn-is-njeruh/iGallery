@@ -33,4 +33,7 @@ class TestImageClass(TestCase):
     fetched_location = Location.objects.get(location_name='Washington DC')
     self.assertTrue(fetched_location.location_name=='Washington DC')
 
-  
+  def test_update_image(self):
+    self.new_image.save_image()
+    fetched = Image.objects.get(image_name = 'avengers')
+    self.assertEqual(fetched.image_name,'avengers')
