@@ -13,7 +13,7 @@ shell:
 run:
 	python3 manage.py runserver
 
-migration:
+migrations:
 	python manage.py makemigrations
 
 migrate:
