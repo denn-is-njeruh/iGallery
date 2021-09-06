@@ -28,4 +28,9 @@ class TestImageClass(TestCase):
     fetch_category = Category.objects.get(category_name='movie')
     self.assertTrue(fetch_category.category_name=='movie')
 
-  def test_filter_by_location()
+  def test_filter_by_location(self):
+    self.new_image.save_image()
+    fetched_location = Location.objects.get(location_name='Washington DC')
+    self.assertTrue(fetched_location.location_name=='Washington DC')
+
+  
