@@ -44,3 +44,15 @@ class TestImageClass(TestCase):
     self.new_image.save_image()
     fetched = Image.objects.get(image_name = 'avengers')
     self.assertEqual(fetched.image_name,'avengers')
+
+
+class TestLocationClass(TestCase):
+  def setUp(self):
+    self.new_location = Location(location_name ='Hollywood')
+    self.new_location.save()
+
+
+  def test_save_location(self):
+    self.new_location.save_location()
+    locations = Location.objects.all()
+    self.assertTrue(len(locations)>0)
