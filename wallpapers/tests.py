@@ -63,4 +63,22 @@ class TestLocationClass(TestCase):
     self.new_location.save_location()
     fetched = Location.objects.get(location_name = 'Chicago')
     self.assertEqual(fetched.location_name,'Chicago')
+
+class TestCategoryClass(TestCase):
   
+  def setUp(self):
+    self.new_image = Image(image_name = 'the_matrix', image_description ='the wallpaper is borrowed from the matrix movie', location='Hollywood', category='movie', image_path='media/gallery/the_matrix.jpg')
+    self.new_image.save()
+
+    self.new_category = Category(category_name='movie')
+    self.new_category.save()
+
+  def test_save_category(self):
+    self.new_category.save_category()
+    categories = Category.objects.all()
+    self.assertTrue(len(categories)>0)
+
+  def test_update_category(self):
+    self.new_category.save_category()
+    fetched = Category.objects.get(category_name='sports')
+    self.assertEqual(fetched.category_name,'sports')
