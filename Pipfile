@@ -11,6 +11,7 @@ psycopg2 = "*"
 pillow = "*"
 cloudinary = "*"
 gunicorn = "*"
+django-location-field = "*"
 
 [dev-packages]
 

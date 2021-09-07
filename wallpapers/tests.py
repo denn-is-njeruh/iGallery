@@ -1,12 +1,24 @@
 from django.test import TestCase
-from .models import Photo,Location,Category
+from .models import Photo,City,Category
 
 
 # Create your tests here.
 class TestImageClass(TestCase):
   #Setup method
   def setUp(self):
-    self.new_photo = Photo(photo_name = 'the_matrix', description ='the wallpaper is borrowed from the matrix movie', location='Chicago', category= 'movie', image='media/default.jpg')
+    self.new_photo = Photo(photo_name = 'the_matrix', description ='the wallpaper is borrowed from the matrix movie', city='Chicago', category= 'movie', image='media/default.jpg')
+    self.new_photo.save()
+
+    self.new_city = City(name='Chicago')
+    self.new_city.save()
+
+    self.new_category = Category(category_name='movie')
+    self.new_category.save()
+
+  def tearDown(self):
+    Photo.objects.all().delete()
+    Category.objects.all().delete()
+    City.objects.all().delete()
 
   def test_save_method(self):
     self.new_photo.save_photo()
@@ -20,15 +32,10 @@ class TestImageClass(TestCase):
     all_objects = Photo.object.all()
     self.assertTrue(len(all_objects)==0)
 
-  def tearDown(self):
-    Photo.objects.all().delete()
-    Category.objects.all().delete()
-    Location.objects.all().delete()
-
   def test_get_photos_by_id(self):
-    self.new_photo.save_photo()
+    # self.new_photo.save_photo()
     fetched_photo = Photo.get_photo_by_id(1)
-    self.assertEqual(fetched_photo.id,1)
+    self.assertTrue(fetched_photo.id,1)
 
   def test_search_by_category(self):
     self.new_photo.save_photo()
@@ -37,7 +44,7 @@ class TestImageClass(TestCase):
 
   def test_filter_by_location(self):
     self.new_photo.save_photo()
-    fetched_location = Location.objects.get(location_name='Washington DC')
+    fetched_location = City.objects.get(location_name='Washington DC')
     self.assertTrue(fetched_location.location_name=='Washington DC')
 
   def test_update_image(self):
@@ -46,30 +53,23 @@ class TestImageClass(TestCase):
     self.assertEqual(fetched.photo_name,'avengers')
 
 
-class TestLocationClass(TestCase):
+class TestCityClass(TestCase):
   def setUp(self):
-    self.new_photo = Photo(photo_name = 'the_matrix', description ='the wallpaper is borrowed from the matrix movie', location='Hollywood', category= 'movie', image='media/default.jpg')
-    self.new_photo.save()
+    self.new_city = City(name ='Hollywood')
+    self.new_city.save()
 
-    self.new_location = Location(location_name ='Hollywood')
-    self.new_location.save()
-
-  def test_save_location(self):
-    self.new_location.save_location()
-    locations = Location.objects.all()
-    self.assertTrue(len(locations)>0)
+  def test_save_city(self):
+    self.new_city.save_city()
+    cities = City.objects.all()
+    self.assertTrue(len(cities)>0)
 
   def test_update_location(self):
-    self.new_location.save_location()
-    fetched = Location.objects.get(location_name = 'Chicago')
-    self.assertEqual(fetched.location_name,'Chicago')
+    self.new_city.save_city()
+    fetched = City.objects.get(name = 'Chicago')
+    self.assertEqual(fetched.name,'Chicago')
 
 class TestCategoryClass(TestCase):
-  
   def setUp(self):
-    self.new_photo = Photo(photo_name = 'the_matrix', description ='the wallpaper is borrowed from the matrix movie', location='Chicago', category='movie', image='media/default.jpg')
-    self.new_photo.save()
-
     self.new_category = Category(category_name='movie')
     self.new_category.save()
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import Http404
-from .models import Photo,Location,Category
+from .models import Photo,City,Category
 
 # Create your views here.
 def all_wallpaper(request):

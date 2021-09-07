@@ -23,6 +23,9 @@ migrate:
 superuser:
 	python3 manage.py createsuperuser
 
+test:
+	python3 manage.py test
+
 heroku:
 	git push heroku migration
 

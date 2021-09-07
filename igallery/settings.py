@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'wallpapers.apps.WallpapersConfig',
     'bootstrap5',
     'cloudinary',
+    'location_field.apps.DefaultConfig'
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"media"),
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_URL = environ.get('CLOUDINARY_URL')
+
+LOCATION_FIELD_PATH = STATIC_URL + 'location_field'
+
+LOCATION_FIELD = {
+'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+'provider.google.api_key': '<PLACE YOUR API KEY HERE>',
+'provider.google.api_libraries': '',
+'provider.google.map.type': 'ROADMAP',
+}
