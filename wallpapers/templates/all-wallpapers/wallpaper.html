@@ -7,12 +7,12 @@
 
 <div class="container">
   <!-- {% if images %} -->
-    {% for image in wallpaper %}
+    {% for image in photos %}
       <div class="row">
-        <img src="{{image.image_view.url}}" class="img-responsive" alt="">
+        <img src="{{photo.image.url}}" class="img-responsive" alt="">
       </div>
       <div class="row">
-        <h1 class="text-center">{{image.image_name}}</h1>
+        <h1 class="text-center">{{photo.photo_name}}</h1>
       </div>
       <div class="row">
         <p>{{image.image_description}}</p>

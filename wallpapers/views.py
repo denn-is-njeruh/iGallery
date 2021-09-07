@@ -10,16 +10,18 @@ def all_wallpaper(request):
 
 
 def movie_wallpaper(request):
-  wallpaper = Photo.objects.get(pk=1)
+  wallpaper = Photo.objects.filter(category_id=2)
   return render(request, 'all-wallpapers/movie-wallpapers.html', {"wallpaper": wallpaper})
 
 
 def nature_wallpaper(request):
-  return render(request, 'all-wallpapers/nature-wallpapers.html')
+  wallpaper = Photo.objects.filter(category='nature')
+  return render(request, 'all-wallpapers/nature-wallpapers.html', {"wallpaper":wallpaper})
 
 
 def sport_wallpaper(request):
-  return render(request, 'all-wallpapers/sport-wallpapers.html')
+  wallpaper = Photo.objects.filter(category='sport')
+  return render(request, 'all-wallpapers/sport-wallpapers.html', {"wallpaper": wallpaper})
 
 # def image(request,image_id):
 #   try:

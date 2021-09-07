@@ -8,7 +8,7 @@ class Photo(models.Model):
   description = models.CharField(max_length=255, default=timezone.now)
   location = models.ForeignKey('Location', on_delete=models.CASCADE, default=timezone.now)
   category = models.ForeignKey('Category', on_delete=models.CASCADE, default=timezone.now)
-  image  = CloudinaryField('images', default='/media/default.jpg')
+  image = CloudinaryField('image', default='/media/default.jpg')
   
   def __str__(self):
     return self.photo_name
