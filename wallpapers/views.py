@@ -1,16 +1,16 @@
 from django.shortcuts import render,redirect
 from django.http import Http404
-from .models import Image,Location,Category
+from .models import Photo,Location,Category
 
 # Create your views here.
 def all_wallpaper(request):
-  wallpaper = Image.objects.all()
+  wallpaper = Photo.objects.all()
   category = Category.objects.all()
   return render(request, 'all-wallpapers/wallpaper.html', {"wallpaper": wallpaper,"category":category})
 
 
 def movie_wallpaper(request):
-  wallpaper = Image.objects.get(pk=1)
+  wallpaper = Photo.objects.get(pk=1)
   return render(request, 'all-wallpapers/movie-wallpapers.html', {"wallpaper": wallpaper})
 
 
