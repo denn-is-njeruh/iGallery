@@ -5,8 +5,7 @@ from .models import Photo,City,Category
 # Create your views here.
 def all_wallpaper(request):
   wallpaper = Photo.objects.all()
-  category = Category.objects.all()
-  return render(request, 'all-wallpapers/wallpaper.html', {"wallpaper": wallpaper,"category":category})
+  return render(request, 'all-wallpapers/wallpaper.html', {"wallpaper": wallpaper,})
 
 
 def movie_wallpaper(request):
