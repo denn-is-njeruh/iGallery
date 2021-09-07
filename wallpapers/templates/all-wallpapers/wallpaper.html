@@ -1,29 +1,31 @@
 {% extends 'all-wallpapers/base.html' %}
 
-<!-- {% load cloudinary %} -->
+{% load cloudinary %}
 
 
 {% block content %}
 
 <div class="container">
-  <!-- {% if images %} -->
-    {% for image in photos %}
-      <div class="row">
-        <img src="{{photo.image.url}}" class="img-responsive" alt="">
-      </div>
-      <div class="row">
-        <h1 class="text-center">{{photo.photo_name}}</h1>
-      </div>
-      <div class="row">
-        <p>{{image.image_description}}</p>
-      </div>
-      <div class="row">
-        <p>Shot in: {{image.location}}</p>
-      </div>
-      {% empty %}
-      <h2>no images</h2>
-    {% endfor %}
-  <!-- {% endif %} -->
+  {% if wallpapers %}
+    <ul>
+      {% for photo in wallpapers %}
+        <div class="row">
+          <img src="{% url 'photo.image' %}" class="img-responsive" alt="">
+        </div>
+        <div class="row">
+          <h1 class="text-center">{{photo.photo_name}}</h1>
+        </div>
+        <div class="row">
+          <p>{{photo.description}}</p>
+        </div>
+        <div class="row">
+          <p>Shot in: {{photo.location}}</p>
+        </div>
+      {% endfor %}
+    </ul>
+  {% else %}
+      <h2>No wallpapers are available</h2>
+  {% endif %}
 </div>
 
 {% endblock %}
