@@ -1,12 +1,17 @@
 from django.shortcuts import render,redirect
 from django.http import Http404
+from .models import Image,Location,Category
 
 # Create your views here.
-def welcome(request):
-  return render(request, 'welcome.html')
+def all_wallpaper(request):
+  wallpaper = Image.objects.all()
+  category = Category.objects.all()
+  return render(request, 'all-wallpapers/wallpaper.html', {"wallpaper": wallpaper,"category":category})
+
 
 def movie_wallpaper(request):
-  return render(request, 'all-wallpapers/movie-wallpapers.html')
+  wallpaper = Image.objects.get(pk=1)
+  return render(request, 'all-wallpapers/movie-wallpapers.html', {"wallpaper": wallpaper})
 
 
 def nature_wallpaper(request):
@@ -15,3 +20,11 @@ def nature_wallpaper(request):
 
 def sport_wallpaper(request):
   return render(request, 'all-wallpapers/sport-wallpapers.html')
+
+# def image(request,image_id):
+#   try:
+#     image = Image.objects.get(id=image_id)
+#   except Image.DoesNotExist:
+#     raise Http404()
+#   return render(request,'all-wallpapers/wallpaper.html', {"image":image,})
+

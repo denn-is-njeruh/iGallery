@@ -6,7 +6,9 @@ from . import views
 urlpatterns = [
   url(r'^$',views.movie_wallpaper, name='movieWallpapers'),
   url(r'^sports/', views.sport_wallpaper, name='sportWallpapers'),
-  url(r'^nature/', views.nature_wallpaper, name='natureWallpapers')
+  url(r'^nature/', views.nature_wallpaper, name='natureWallpapers'),
+  url(r'^wallpaper/', views.all_wallpaper, name='image')
+
   ]
 
 if settings.DEBUG:
