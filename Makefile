@@ -1,5 +1,8 @@
 SHELL: #!/bin/bash
 
+dotenv:
+	. .env
+
 shell:
 	python manage.py shell
 	
