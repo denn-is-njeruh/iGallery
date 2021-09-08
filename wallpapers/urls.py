@@ -4,10 +4,10 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-  url(r'^$', views.all_wallpaper, name='image'),
-  url(r'^movie/', views.movie_wallpaper, name='movieWallpapers'),
-  url(r'^sports/', views.sport_wallpaper, name='sportWallpapers'),
-  url(r'^nature/', views.nature_wallpaper, name='natureWallpapers'),
+  url(r'^$', views.all_wallpapers, name='wallpapers'),
+  # url(r'^sports/', views.sport_wallpaper, name='sportWallpapers'),
+  url(r'^photo/<int:pk>', views.wallpaper, name='photos'),
+  url(r'^movie_wallpaper', views.movie_wallpaper, name='movieWallpapers'),
   ]
 
 if settings.DEBUG:

@@ -1,0 +1,22 @@
+{% extends 'all_wallpapers/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <!-- {% for wallpaper in wallpapers %} -->
+      <div class="col-md-4">
+        <div class="card my-2">
+          <img height="100px" width="150px" src="{{ wallpaper.image.url }}" class="img-thumbnail" alt="">
+          <div class="card-body">
+            <h3 class="text-center">{{wallpaper.name}}</h3>
+            <p>{{wallpaper.description}}</p>
+            <p>Shot in: {{wallpaper.city}}</p>
+          </div>
+        </div>
+      </div>
+    <!-- {% endfor %} -->
+  </div>  
+</div>
+
+{% endblock %}

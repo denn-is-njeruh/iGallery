@@ -1,0 +1,14 @@
+{% extends 'all_wallpapers/base.html' %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container">
+  <div class="row">
+    {% for photo in movie %}
+    {% include 'all_wallpapers/photo.html' %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
