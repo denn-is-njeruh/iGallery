@@ -21,7 +21,7 @@ migrate:
 	python3 manage.py migrate
 
 superuser:
-	python3 manage.py createsuperuser
+	python3 manage.py createsuperuser --username ${name}
 
 test:
 	python3 manage.py test
@@ -29,10 +29,6 @@ test:
 heroku:
 	git push heroku migration
 
-deploy:
-	docker-compose build
-	docker-compose up -d
-
-down:
-	docker-compose down
+collectstatic:
+	python manage.py collectstatic
 

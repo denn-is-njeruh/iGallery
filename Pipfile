@@ -12,6 +12,8 @@ pillow = "*"
 cloudinary = "*"
 gunicorn = "*"
 django-location-field = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [dev-packages]
 
