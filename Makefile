@@ -1,24 +1,16 @@
-SHELL := /bin/bash
-
-include .env
-
-install:
-	pipenv install
-
-activate:
-	pipenv shell
+SHELL: #!/bin/bash
 
 shell:
 	python manage.py shell
 	
 run:
-	python3 manage.py runserver
+	python manage.py runserver
 
 migrations:
 	python manage.py makemigrations
 
 migrate:
-	python3 manage.py migrate
+	python manage.py migrate
 
 superuser:
 	python3 manage.py createsuperuser --username ${name}
