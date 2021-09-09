@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get('SECRET_KEY','sample_unsafe_secret')
+SECRET_KEY = environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (environ.get('DEBUG','False')=='True')
@@ -140,13 +140,13 @@ if DEBUG:
         os.path.join(BASE_DIR,'static')
     ]
 else:
-    STATIC_ROOT = "/home/moringa/Documents/IPs/Python/iGallery/static"
+    STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,"media"),
+MEDIA_ROOT = os.path.join(BASE_DIR,'media'),
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -157,11 +157,5 @@ APPEND_SLASH = False
 
 CLOUDINARY_URL = environ.get('CLOUDINARY_URL')
 
-LOCATION_FIELD_PATH = STATIC_URL + 'location_field'
-
-LOCATION_FIELD = {
-'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
-'provider.google.api_key': '<PLACE YOUR API KEY HERE>',
-'provider.google.api_libraries': '',
-'provider.google.map.type': 'ROADMAP',
-}
+#configure Django App for Heroku
+# django_heroku.settings(locals())
