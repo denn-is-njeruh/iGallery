@@ -29,10 +29,10 @@ def movie_wallpaper(request):
 #   return render(request, 'all-wallpapers/sport-wallpapers.html', {"wallpaper": wallpaper})
 
 
-def wallpaper(request,pk):
+def wallpaper(request,id):
   try:
-    photos = Photo.objects.get(id=pk)
+    wallpaper = Photo.objects.filter(id = id)
   except Photo.DoesNotExist:
     raise Http404()
-  return render(request,"all-wallpapers/photo.html", {"photos":photos})
+  return render(request,'photo_detail.html', {"wallpaper": wallpaper})
 

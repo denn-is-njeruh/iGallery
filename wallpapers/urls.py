@@ -5,9 +5,10 @@ from . import views
 
 urlpatterns = [
   url(r'^$', views.all_wallpapers, name='wallpapers'),
-  # url(r'^sports/', views.sport_wallpaper, name='sportWallpapers'),
-  url(r'^photo/<int:pk>', views.wallpaper, name='photos'),
-  url(r'^movie_wallpaper', views.movie_wallpaper, name='movieWallpapers'),
+  url(r'^wallpaper/(?P<id>\d+)', views.wallpaper, name='wallpaper'),
+  # url(r'^sports/'$, views.sport_wallpaper, name='sportWallpapers'),
+  
+  url(r'^movie_wallpaper/', views.movie_wallpaper, name='movieWallpapers'),
   ]
 
 if settings.DEBUG:
