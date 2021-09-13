@@ -25,9 +25,9 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex">
+          <form class="d-flex" role="search" action="{% url 'search_results' %}">
             <input class="form-control me-2" type="search" placeholder="Search wallpaper" aria-label="Search">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
+            <button class="btn btn-outline-secondary" type="submit"><i class="glyphicon glyphicon-search"></i>Search</button>
           </form>
         </div>
       </div>

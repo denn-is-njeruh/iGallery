@@ -13,10 +13,10 @@ def all_wallpapers(request):
   return render(request, 'index.html', {"wallpapers": wallpapers,"categories": categories,})
 
 
-def movie_wallpaper(request):
-  movie_category = Category.objects.all()
-  movie = Photo.objects.filter(movie_category)
-  return render(request, 'all-wallpapers/movie-wallpapers.html', {"movie": movie})
+# def movie_wallpaper(request):
+#   categories = Category.objects.all()
+#   movie = Photo.objects.filter(category = categories)
+#   return render(request, 'all-wallpapers/movie-wallpapers.html', {"movie": movie})
 
 
 # def nature_wallpaper(request):
@@ -27,6 +27,17 @@ def movie_wallpaper(request):
 # def sport_wallpaper(request):
 #   wallpaper = Photo.objects.filter()
 #   return render(request, 'all-wallpapers/sport-wallpapers.html', {"wallpaper": wallpaper})
+
+
+def search_results(request):
+  if 'photo' in request.GET and request.GET["photo"]:
+    search_term = request.GET.get("photo")
+    searched_photo = Photo.search_by_category(search_term)
+    message = f"{search_term}"
+    return render(request, 'all_wallpapers/search.html',{"message":message, "photos":searched_photo})
+  else:
+    message = "The category you searched is not available"
+  return render(request,'all_wallpapers/search.html',{"message":message})
 
 
 def wallpaper(request,id):
