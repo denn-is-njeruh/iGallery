@@ -10,8 +10,9 @@
           <img src="{{ wallpaper.image.url }}" class="img-thumbnail" alt="">
           <div class="card-body bg-dark">
             <h3 class="text-center text-light">{{wallpaper.photo_name}}</h3>
-            <p class="text-center text-light">{{wallpaper.description}}</p>
-            <p class="text-center text-light">Shot in: {{wallpaper.city}}</p>
+            <div>
+              <button class="btn btn-link" type="button"><a href="{% url 'wallpaper' wallpaper.id %}">View here</a></button>
+            </div>
           </div>
         </div>
       </div>

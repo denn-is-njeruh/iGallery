@@ -156,6 +156,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 APPEND_SLASH = False
 
 CLOUDINARY_URL = environ.get('CLOUDINARY_URL')
-
-#configure Django App for Heroku
-# django_heroku.settings(locals())
