@@ -3,13 +3,13 @@
 import os
 import sys
 
-import dotenv
+from dotenv import read_dotenv
 
 
 def main():
   """Run administrative tasks."""
 
-  dotenv.read_dotenv(override=True)
+  read_dotenv(override=True)
 
   os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'igallery.settings')
   try:
@@ -21,7 +21,6 @@ def main():
 			"forget to activate a virtual environment?"
 	) from exc
   execute_from_command_line(sys.argv)
-
 
 if __name__ == '__main__':
   main()

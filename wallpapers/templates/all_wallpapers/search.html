@@ -13,7 +13,7 @@
     {% if photos %}
       {% for photo in photos %}
         <div class="col-sm-6 col-md-3">
-          <h1>{{photo.photo_name}}</h1>
+          <h1>{{photo.category.category_name}}</h1>
         </div>
       {% endfor %}
     {% endif %}
